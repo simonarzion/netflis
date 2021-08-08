@@ -2,9 +2,10 @@ import { makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
+  selectMovie,
   setActionMovies,
   setComedyMovies,
   setNetflixOriginals,
@@ -30,7 +31,7 @@ const useStyles = makeStyles({
     },
 
     "&.movieSlide:hover~&.movieSlide": {
-      transform: " translate3d(2.5rem, 0, 0) scale(1.2)",
+      transform: " translate3d(2rem, 0, 0) scale(1.1)",
     },
   },
 
@@ -42,20 +43,20 @@ const useStyles = makeStyles({
     },
 
     "&.movieSlide:hover~&.movieSlide": {
-      transform: " translate3d(2.5rem, 0, 0) scale(1.2)",
+      transform: " translate3d(2rem, 0, 0) scale(1.1)",
     },
   },
 
   slide: {
     transition: "all .3s ease",
     "&:hover": {
-      transform: " translate3d(2.5rem, 0, 0) scale(1.2)",
+      transform: " translate3d(2rem, 0, 0) scale(1.1)",
       opacity: "1 !important",
       zIndex: "999 !important",
     },
 
     "&:hover~&.movieSlide": {
-      transform: " translate3d(5rem, 0, 0)",
+      transform: " translate3d(4rem, 0, 0)",
     },
   },
 
@@ -69,7 +70,6 @@ const useStyles = makeStyles({
 const MoviesList = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const state = useSelector((state) => state);
 
   const [moviesInfo, setMoviesInfo] = useState([
     { title: "Top Rated", movies: [] },
@@ -151,10 +151,19 @@ const MoviesList = () => {
         });
     };
 
+    const fetchSelectedMovie = () => {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/trending/movie/day?api_key=d5eb8f301824281ae15a37b2a20965c7"
+        )
+        .then((res) => dispatch(selectMovie(res.data.results[0])));
+    };
+
     fetchTopRatedMovies();
     fetchNetflixOriginalMovies();
     fetchActionMovies();
     fetchComedyMovies();
+    fetchSelectedMovie();
   }, [dispatch]);
 
   return (

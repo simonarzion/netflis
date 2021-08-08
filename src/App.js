@@ -7,7 +7,10 @@ import { AllReducers } from "./redux/store";
 import HomePage from "./screens/HomePage";
 import NotFoundPage from "./screens/NotFoundPage";
 
-const store = createStore(AllReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(
+  AllReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const App = () => {
   return (

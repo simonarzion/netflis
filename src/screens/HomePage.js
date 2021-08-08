@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import HeroMovie from "../components/HeroMovie";
 import MoviesList from "../components/MoviesList";
 
 const useStyles = makeStyles({
@@ -13,7 +12,6 @@ const HomePage = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <HeroMovie />
       <MoviesList />
     </div>
   );

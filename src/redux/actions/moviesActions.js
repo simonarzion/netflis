@@ -27,3 +27,10 @@ export const setNetflixOriginals = (movies) => {
     payload: movies,
   };
 };
+
+export const selectMovie = (movie) => {
+  return {
+    type: actionTypes.SELECT_MOVIE,
+    payload: movie,
+  };
+};
