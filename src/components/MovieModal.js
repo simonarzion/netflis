@@ -13,12 +13,33 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   modal: {
-    background: "#050505",
+    background: "#000",
     outline: "none",
     overflow: "auto",
   },
   modal_content: {
     padding: 10,
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+
+    flexDirection: "column",
+  },
+  image_container: {
+    position: "relative",
+    "@media screen and (max-width: 599px)": {
+      display: "none",
+    },
+
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      width: "50%",
+      height: "100%",
+      top: "0",
+      left: "0",
+      background: "linear-gradient(to right, #000, transparent)",
+    },
   },
   image: {
     width: "100%",
@@ -37,11 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     background: "#ff0000",
-  },
-  image_container: {
-    "@media screen and (max-width: 599px)": {
-      display: "none",
-    },
+    color: "#fff",
   },
   close_modal_btn: {
     position: "absolute",
