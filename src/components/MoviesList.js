@@ -20,17 +20,15 @@ const useStyles = makeStyles({
     margin: "auto",
     width: "95%",
   },
-
   title: {
     color: "#fff",
   },
-
   swiper: {
     padding: "1.5rem 0",
+
     "&:hover .movieSlide": {
       opacity: ".2",
     },
-
     "&.movieSlide:hover~&.movieSlide": {
       transform: " translate3d(1.5rem, 0, 0) scale(1.1)",
     },
@@ -42,12 +40,10 @@ const useStyles = makeStyles({
     "&:hover .movieSlide": {
       opacity: ".2",
     },
-
     "&.movieSlide:hover~&.movieSlide": {
       transform: " translate3d(1.5rem, 0, 0) scale(1.1)",
     },
   },
-
   slide: {
     transition: "all .3s ease",
     "&:hover": {
@@ -60,7 +56,6 @@ const useStyles = makeStyles({
       transform: " translate3d(3rem, 0, 0)",
     },
   },
-
   image: {
     width: "100%",
     height: "100%",

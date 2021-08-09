@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-
     flexDirection: "column",
   },
   image_container: {
@@ -109,7 +108,7 @@ const MovieModal = ({ movie, open, setOpen }) => {
           <Grid item xs={12} sm={6} className={classes.image_container}>
             <img
               className={classes.image}
-              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
               alt=""
             />
           </Grid>
