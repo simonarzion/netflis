@@ -12,6 +12,7 @@ import {
   setTopRatedMovies,
 } from "../redux/actions/moviesActions";
 import "swiper/swiper-bundle.css";
+import Movie from "./Movie";
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +32,7 @@ const useStyles = makeStyles({
     },
 
     "&.movieSlide:hover~&.movieSlide": {
-      transform: " translate3d(2rem, 0, 0) scale(1.1)",
+      transform: " translate3d(1.5rem, 0, 0) scale(1.1)",
     },
   },
 
@@ -43,20 +44,20 @@ const useStyles = makeStyles({
     },
 
     "&.movieSlide:hover~&.movieSlide": {
-      transform: " translate3d(2rem, 0, 0) scale(1.1)",
+      transform: " translate3d(1.5rem, 0, 0) scale(1.1)",
     },
   },
 
   slide: {
     transition: "all .3s ease",
     "&:hover": {
-      transform: " translate3d(2rem, 0, 0) scale(1.1)",
+      transform: " translate3d(1.5rem, 0, 0) scale(1.1)",
       opacity: "1 !important",
       zIndex: "999 !important",
     },
 
     "&:hover~&.movieSlide": {
-      transform: " translate3d(4rem, 0, 0)",
+      transform: " translate3d(3rem, 0, 0)",
     },
   },
 
@@ -180,9 +181,6 @@ const MoviesList = () => {
                   ? classes.swiper_netflix
                   : classes.swiper + " movieSwiper"
               }
-              preventClicksPropagation={true}
-              preventClicks={true}
-              slideToClickedSlide={false}
               breakpoints={{
                 1378: {
                   slidesPerView: 5,
@@ -208,15 +206,7 @@ const MoviesList = () => {
                     key={i}
                     className={classes.slide + " movieSlide"}
                   >
-                    <img
-                      className={classes.image + " img"}
-                      src={
-                        movies.title === "Netflix Originals"
-                          ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                          : `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
-                      }
-                      alt={movie.title}
-                    />
+                    <Movie movies={movies} movie={movie} />
                   </SwiperSlide>
                 );
               })}
